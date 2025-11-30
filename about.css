@@ -1,0 +1,603 @@
+/*==========================================================
+  1. GLOBAL STYLES & LAYOUT
+==========================================================*/
+body {
+    margin: 0;
+    font-family: 'Roboto', Arial, sans-serif;
+    background-color: #030303; 
+    color: #f7f7f7;
+}
+
+/*==========================================================
+  2. NAVIGATION BAR (NAV) - ENHANCED
+==========================================================*/
+.navbar {
+    background: #030303;
+    color: white;
+    padding: 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 30px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-img {
+    width: 60px;
+    height: 60px;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.logo-img:hover {
+    transform: scale(1.05);
+}
+
+.brand-name {
+    font-size: 20px;
+    font-weight: 700;
+    color: #00bfff;
+    letter-spacing: 0.5px;
+}
+
+/* Hamburger Menu */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 8px;
+}
+
+.hamburger span {
+    width: 22px;
+    height: 2.5px;
+    background: #ffffff;
+    margin: 4px 0;
+    border-radius: 2px;
+    transition: 0.3s ease;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(8px, 8px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* Navigation Menu */
+.nav-menu {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-link {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    position: relative;
+    text-transform: uppercase;
+    font-size: 0.85em;
+    letter-spacing: 0.5px;
+}
+
+.nav-link::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #ffffff;
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #ffffff;
+}
+
+.nav-link:hover::before {
+    width: 100%;
+}
+
+.nav-link.active {
+    background: transparent;
+    color: #ffffff;
+    border-bottom: 2px solid #ffffff;
+    padding-bottom: 6px;
+}
+
+.nav-link.active::before {
+    width: 0;
+}
+
+/* Responsive Hamburger Menu */
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+    }
+
+    .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 80px;
+        flex-direction: column;
+        background-color: #030303;
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        padding: 16px 0;
+        gap: 0;
+    }
+
+    .nav-menu.active {
+        left: 0;
+    }
+
+    .nav-menu li {
+        padding: 12px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .nav-link {
+        display: block;
+        padding: 12px 0;
+    }
+
+    .brand-name {
+        font-size: 18px;
+    }
+
+    .logo-img {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+/*==========================================================
+  3. HERO SECTION - ABOUT PAGE
+==========================================================*/
+.about-hero {
+    position: relative;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    background: linear-gradient(135deg, rgba(10, 10, 10, 0.8) 0%, rgba(0, 0, 0, 0.9) 100%), url('car.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    overflow: hidden;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(3, 3, 3, 0.7) 0%, rgba(0, 0, 0, 0.8) 100%);
+    z-index: 1;
+}
+
+.hero-content {
+    z-index: 2;
+    position: relative;
+}
+
+.about-hero h1 {
+    font-size: 3.5em;
+    margin: 0 0 15px 0;
+    font-weight: 900;
+    color: #ffffff;
+    letter-spacing: 2px;
+}
+
+.about-hero p {
+    font-size: 1.3em;
+    color: #d0d0d0;
+    margin: 0;
+    letter-spacing: 1px;
+}
+
+/*==========================================================
+  4. MAIN CONTAINER & CONTENT
+==========================================================*/
+.container {
+    padding: 0;
+    background-color: #030303; 
+    color: #f7f7f7;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.about-intro {
+    padding: 80px 40px;
+    background: linear-gradient(135deg, rgba(3, 3, 3, 1) 0%, rgba(26, 26, 26, 0.8) 100%);
+}
+
+.about-intro h2 {
+    font-size: 2.5em; 
+    color: #ffffff;
+    margin: 0 0 20px 0;
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+
+.about-intro p {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    line-height: 1.8;
+    color: #f7f7f7;
+    font-size: 1.1em;
+    margin: 0;
+}
+
+/*==========================================================
+  5. MISSION & VISION GRID
+==========================================================*/
+.mission-vision-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    padding: 80px 40px;
+    background: #030303;
+}
+
+.mission-card, .vision-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 45px 35px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.mission-card:hover, .vision-card:hover {
+    transform: translateY(-8px);
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+}
+
+.card-icon {
+    font-size: 3em;
+    margin-bottom: 20px;
+    display: inline-block;
+}
+
+.mission-card h3, .vision-card h3 {
+    font-size: 1.8em;
+    color: #ffffff;
+    margin: 15px 0 20px 0;
+    font-weight: 700;
+}
+
+.mission-card p, .vision-card p {
+    color: #a0a0a0;
+    font-size: 0.95em;
+    line-height: 1.7;
+    margin: 0;
+    font-weight: 300;
+}
+
+.mission-card.animate-in, .vision-card.animate-in {
+    animation: slideIn 0.6s ease-out forwards;
+}
+
+/*==========================================================
+  6. TEAM INTRO SECTION
+==========================================================*/
+.team-intro {
+    padding: 80px 40px;
+    background: #0a0a0a;
+    text-align: center;
+}
+
+.team-intro h2 {
+    font-size: 2.5em;
+    color: #ffffff;
+    margin-bottom: 15px;
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+
+.team-intro > p {
+    font-size: 1.1em;
+    color: #a0a0a0;
+    margin-bottom: 50px;
+}
+
+.team-roles {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 30px;
+}
+
+.role-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 35px 25px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.role-card:hover {
+    transform: translateY(-8px);
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.role-icon {
+    font-size: 2.5em;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.role-card h4 {
+    font-size: 1.2em;
+    color: #ffffff;
+    margin: 10px 0 12px 0;
+    font-weight: 700;
+}
+
+.role-card p {
+    font-size: 0.9em;
+    color: #a0a0a0;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.role-card.animate-in {
+    animation: slideIn 0.6s ease-out forwards;
+}
+
+/*==========================================================
+  7. TEAM CAROUSEL SECTION
+==========================================================*/
+.team-carousel-section {
+    padding: 80px 40px;
+    background: #030303;
+    text-align: center;
+}
+
+.team-carousel-section h2 {
+    font-size: 2.5em;
+    color: #ffffff;
+    margin-bottom: 50px;
+    font-weight: 900;
+}
+
+/* Team Photos Container */
+.team-photos-container {
+    overflow: hidden; 
+    white-space: nowrap; 
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+/* Team Scroll Wrapper */
+.team-scroll-wrapper {
+    display: flex; 
+    flex-wrap: nowrap; 
+    animation: scroll-right 40s linear infinite; 
+    width: 200%; 
+    transform: translateX(-50%);
+    transition: animation-play-state 0.3s ease;
+}
+
+.team-photos-container:hover .team-scroll-wrapper {
+    animation-play-state: paused;
+}
+
+@keyframes scroll-right {
+    0% {
+        transform: translateX(-50%);
+    }
+    100% {
+        transform: translateX(0%);
+    }
+}
+
+/* Team Member Card */
+.team-member {
+    text-align: center;
+    padding: 0 50px;
+    flex-shrink: 0;
+    min-width: max-content;
+    transition: all 0.3s ease;
+}
+
+.team-member img {
+    width: 160px;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 15px;
+    border: 3px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.team-member:hover img {
+    border-color: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+}
+
+.member-name {
+    font-size: 1.15em;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 10px 0 5px 0;
+    transition: color 0.3s ease;
+}
+
+.team-member:hover .member-name {
+    color: #d0d0d0;
+}
+
+.member-role {
+    font-size: 0.9em;
+    color: #a0a0a0;
+    margin: 0;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.team-member:hover .member-role {
+    color: #c0c0c0;
+}
+
+/*==========================================================
+  8. CTA SECTION
+==========================================================*/
+.cta-section {
+    background: #0a0a0a;
+    padding: 80px 40px;
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.cta-content h2 {
+    font-size: 2.5em;
+    color: #ffffff;
+    margin: 0 0 15px 0;
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+
+.cta-content p {
+    font-size: 1.1em;
+    color: #a0a0a0;
+    margin: 0 0 35px 0;
+    line-height: 1.6;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 15px 40px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    font-size: 0.9em;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    border: 2px solid transparent;
+}
+
+.btn-primary {
+    background: #ffffff;
+    color: #030303;
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(255, 255, 255, 0.3);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+}
+
+.btn-secondary:hover {
+    background: #ffffff;
+    color: #030303;
+    transform: translateY(-3px);
+}
+
+/*==========================================================
+  9. ANIMATIONS
+==========================================================*/
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/*==========================================================
+  10. RESPONSIVE DESIGN
+==========================================================*/
+@media (max-width: 768px) {
+    .about-hero h1 {
+        font-size: 2.2em;
+    }
+
+    .about-intro,
+    .mission-vision-grid,
+    .team-intro,
+    .team-carousel-section,
+    .cta-section {
+        padding: 50px 20px;
+    }
+
+    .about-intro h2,
+    .team-intro h2,
+    .team-carousel-section h2,
+    .cta-content h2 {
+        font-size: 1.8em;
+    }
+
+    .team-member {
+        padding: 0 30px;
+    }
+
+    .team-member img {
+        width: 130px;
+        height: 130px;
+    }
+
+    .cta-buttons {
+        flex-direction: column;
+    }
+
+    .btn {
+        width: 100%;
+    }
+}
+
+
