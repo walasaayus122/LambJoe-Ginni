@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products & Services - LambJoe-Ginni</title>
+    <link rel="stylesheet" href="products.css">
+    <script src="product.js"></script>
+    <link rel="icon" type="image/png" href="image.png">
+</head>
+<body>
+
+<!-- Enhanced Navigation -->
+<nav class="navbar">
+    <div class="nav-container">
+        <div class="logo-area">
+            <img src="image.png" width="80" height="80" class="logo-img" alt="LambJoe-Ginni Logo">
+            <span class="brand-name">LambJoe-Ginni</span>
+        </div>
+        
+        <!-- Hamburger Menu for Mobile -->
+        <button class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <!-- Navigation Links -->
+        <ul class="nav-menu" id="navMenu">
+            <li><a class="nav-link nav-home" href="index.html">Home</a></li>
+            <li><a class="nav-link nav-about" href="about.html">About Us</a></li>
+            <li><a class="nav-link nav-products active" href="products.html">Products/Services</a></li>
+            <li><a class="nav-link nav-contact" href="contact.html">Contact</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- Page Hero Section -->
+<section class="products-hero">
+    <div class="hero-overlay"></div>
+    <video autoplay muted loop id="bg-video" class="hero-video">
+        <source src="calm.mp4" type="video/mp4">
+    </video>
+
+    <div class="hero-content">
+        <h1>Our Premium Fleet</h1>
+        <p>Luxury Performance Redefined</p>
+    </div>
+</section>
+
+<!-- Products Container -->
+<section class="products-container">
+    <div class="products-intro">
+        <h2>Explore Our Vehicles</h2>
+        <p>Hover over any vehicle to view detailed specifications and discover what makes each model exceptional.</p>
+    </div>
+
+    <!-- Rotating Carousel -->
+    <div class="carousel-wrapper">
+        <div class="carousel-container" id="carouselContainer">
+            <div class="product-card" data-car="kingjoe">
+                <a href="#kingjoe-details" class="product-link">
+                    <img src="kina.jpg" alt="King-Joe" class="product-image">
+                    <h4 class="product-name">King-Joe</h4>
+                </a>
+            </div>
+            
+            <div class="product-card" data-car="xthian">
+                <a href="#xthian-details" class="product-link">
+                    <img src="king joe.jpg" alt="X-thian" class="product-image">
+                    <h4 class="product-name">X-thian</h4>
+                </a>
+            </div>
+            
+            <div class="product-card" data-car="detailing">
+                <a href="#detailing-details" class="product-link">
+                    <img src="BLUE CAR.jpg" alt="King-L" class="product-image">
+                    <h4 class="product-name">King-L</h4>
+                </a>
+            </div>
+
+            <div class="product-card" data-car="EL-tera">
+                <a href="#EL-tera-details" class="product-link">
+                    <img src="el.jpg" alt="EL-tera" class="product-image">
+                    <h4 class="product-name">EL-tera</h4>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Product Details Panels -->
+    <div class="details-panels">
+        <div id="kingjoe-details" class="product-details">
+            <div class="details-content">
+                <h3>King-Joe Specifications</h3>
+                <p>Engineered for unrivaled performance and breathtaking aesthetics.</p>
+                <ul>
+                    <li>Engine: Twin-Turbo V12 with E-Boost Hybrid Assist</li>
+                    <li>Horsepower: 1,080 HP @ 8,500 RPM</li>
+                    <li>Top Speed: Electronically limited to 350 km/h (217 mph)</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div id="xthian-details" class="product-details">
+            <div class="details-content">
+                <h3>X-thian Specifications</h3>
+                <p>The perfect grand tourer, designed for crossing continents in comfort without sacrificing exhilarating speed and handling.</p>
+                <ul>
+                    <li>Engine: Turbocharged V8 Hybrid</li>
+                    <li>Range: 500+ miles</li>
+                    <li>Horsepower: 810 HP @ 9,000 RPM</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div id="detailing-details" class="product-details">
+            <div class="details-content">
+                <h3>King-L Specifications</h3>
+                <p>A meticulous, multi-stage restoration service ensuring your vehicle retains its showroom finish and protection.</p>
+                <ul>
+                    <li>Engine: Modular V8 Biturbo with Plug-in Hybrid Power</li>
+                    <li>Horsepower: 950 HP</li>
+                    <li>Torque: 1,150 Nm (848 lb-ft) available from 2,000 RPM</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div id="EL-tera-details" class="product-details">
+            <div class="details-content">
+                <h3>EL-tera Specifications</h3>
+                <p>A flagship hypercar defining the next generation of speed and ultra-luxury engineering</p>
+                <ul>
+                    <li>Engine: Mid-Mounted 5.2L V10</li>
+                    <li>Dry Weight: 1,380 kg (3,042 lbs)</li>
+                    <li>Exhaust: Inconel High-Flow System with Active Valves</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Services Section -->
+    <section class="services-section">
+        <h2>Exclusive Owner Services</h2>
+        <div class="services-grid">
+            <div class="service-card" data-icon="✨" onclick="toggleService('bespoke-info')">
+                <h3>Bespoke Commissioning</h3>
+                <p>Work directly with our lead designers to craft a truly one-of-a-kind vehicle.</p>
+                <div id="bespoke-info" class="service-details">
+                    <ul>
+                        <li>Access to rare interior materials and custom paint formulations</li>
+                        <li>Every stitch, material, and color chosen by you</li>
+                        <li>Exclusive customization options unavailable to the public</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-card" data-icon="🌍" onclick="toggleService('concierge-info')">
+                <h3>Global Concierge Service</h3>
+                <p>Dedicated 24/7 global support and exclusive owner benefits.</p>
+                <div id="concierge-info" class="service-details">
+                    <ul>
+                        <li>Priority servicing and transport logistics</li>
+                        <li>Invitation to annual L-G Owners' Rally</li>
+                        <li>Access to high-performance driving events worldwide</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="service-card" data-icon="🔧" onclick="toggleService('maintenance-info')">
+                <h3>Certified Maintenance Program</h3>
+                <p>Ensure your vehicle retains peak performance and value.</p>
+                <div id="maintenance-info" class="service-details">
+                    <ul>
+                        <li>Factory-trained artisans handling all service</li>
+                        <li>Only Authentic LambJoe-Ginni components used</li>
+                        <li>Comprehensive service plans tailored to your needs</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="service-card" data-icon="💎" onclick="toggleService('detailing-info')">
+                <h3>Elite Detailing & Protection</h3>
+                <p>Multi-stage restoration with specialized ceramic coatings.</p>
+                <div id="detailing-info" class="service-details">
+                    <ul>
+                        <li>Paint correction and protection to showroom quality</li>
+                        <li>Specialized ceramic coatings for lasting finish</li>
+                        <li>Guaranteed protection and pristine appearance</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-card" data-icon="🛡️" onclick="toggleService('warranty-info')">
+                <h3>Extended Warranty Coverage</h3>
+                <p>Comprehensive protection plan for your investment.</p>
+                <div id="warranty-info" class="service-details">
+                    <ul>
+                        <li>Extended warranty up to 10 years or 100,000 miles</li>
+                        <li>Full powertrain and component coverage</li>
+                        <li>24/7 roadside assistance worldwide</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-card" data-icon="👑" onclick="toggleService('vip-info')">
+                <h3>VIP Ownership Experience</h3>
+                <p>Exclusive perks and privileges for our most valued clients.</p>
+                <div id="vip-info" class="service-details">
+                    <ul>
+                        <li>Invitation to exclusive owner events and launches</li>
+                        <li>Priority access to new models and special editions</li>
+                        <li>Complimentary concierge and personal vehicle specialist</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section><!-- CTA Section -->
+<section class="cta-section">
+    <div class="cta-content">
+        <h2>Ready to Experience Luxury?</h2>
+        <p>Schedule your test drive or request more information about our premium vehicles.</p>
+        <div class="cta-buttons">
+            <a href="contact.html" class="btn btn-primary">Schedule Test Drive</a>
+            <a href="contact.html" class="btn btn-secondary">Get More Info</a>
+        </div>
+    </div>
+</section>
+
+<script>
+    // Mobile Navigation Handler (UNMODIFIED)
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('navMenu');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    if (hamburger && navMenu) {
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        });
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                hamburger.classList.remove('active');
+            });
+        });
+    }
+
+    // Active Link Handler (UNMODIFIED)
+    function setActiveLink() {
+        const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === currentPage) {
+                link.classList.add('active');
+            }
+        });
+    }
+
+    setActiveLink();
+    window.addEventListener('load', setActiveLink);
+
+    // ===== CAROUSEL - STATIC VIEW (SIMPLIFIED) =====
+    // Removed rotation variables (carouselRotation, isAutoRotating, rotationSpeed, animationId)
+    const productCards = document.querySelectorAll('.product-card');
+
+    // Helper function to select and focus card on click
+    function selectCard(card) {
+        
+        // 1. Remove highlight from all cards
+        productCards.forEach(c => c.classList.remove('highlighted'));
+        
+        // 2. Highlight the clicked card
+        card.classList.add('highlighted');
+        
+        // 3. Show the details panel
+        const detailsId = card.dataset.car;
+        
+        // Hide all details
+        document.querySelectorAll('.product-details').forEach(detail => {
+            detail.classList.remove('active');
+        });
+        
+        // Show the target details
+        const targetDetail = document.querySelector(`#${detailsId}-details`);
+        if (targetDetail) {
+            targetDetail.classList.add('active');
+        }
+
+        // Scroll to the detail panel
+        if (targetDetail) {
+            targetDetail.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    }
+
+    // Click handler to select card
+    productCards.forEach(card => {
+        card.addEventListener('click', (e) => {
+            e.preventDefault();
+            selectCard(card);
+            
+            // Scroll to details after a brief delay to allow DOM update
+            setTimeout(() => {
+                const detailsId = card.dataset.car;
+                const targetDetail = document.querySelector(`#${detailsId}-details`);
+                if (targetDetail) {
+                    targetDetail.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+            }, 100);
+        });
+    });
+
+    // Handle clicking elsewhere to deselect (optional, but good practice)
+    document.addEventListener('click', (e) => {
+        // If click is not on a card or a product link, deselect
+        if (!e.target.closest('.product-card') && !e.target.closest('.product-details')) {
+            // Only deselect if not clicking on service elements
+            if (!e.target.closest('.service-card') && !e.target.closest('.cta-section')) {
+                productCards.forEach(c => c.classList.remove('highlighted'));
+                document.querySelectorAll('.product-details').forEach(detail => {
+                    detail.classList.remove('active');
+                });
+            }
+        }
+    });
+
+    // Service Toggle Function (UNMODIFIED)
+    function toggleService(serviceId) {
+        const serviceDetail = document.getElementById(serviceId);
+        if (serviceDetail) {
+            serviceDetail.classList.toggle('active');
+        }
+    }
+    
+    // Make the service toggle function globally available (since it's called via onclick in HTML)
+    window.toggleService = toggleService;
+
+
+    // Scroll Animation for Cards (UNMODIFIED)
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -100px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Assuming 'animate-in' class provides a simple fade-up/slide-in
+                entry.target.classList.add('animate-in'); 
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.service-card, .product-details').forEach(card => {
+        observer.observe(card);
+    });
+</script>
+
+</body>
+</html>

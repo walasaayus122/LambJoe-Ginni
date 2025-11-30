@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LambJoe-Ginni - Premium Motor Solutions</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="image.png">
+</head>
+<body>
+    <!-- Splash Screen -->
+    <div id="splash-screen">
+        <img src="image.png" alt="Company Logo" class="splash-logo"> 
+    </div>
+
+    <!-- Enhanced Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo-area">
+                <img src="image.png" width="80" height="80" class="logo-img" alt="LambJoe-Ginni Logo">
+                <span class="brand-name">LambJoe-Ginni</span>
+            </div>
+            
+            <!-- Hamburger Menu for Mobile -->
+            <button class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <!-- Navigation Links -->
+            <ul class="nav-menu" id="navMenu">
+                <li><a class="nav-link nav-home active" href="index.html">Home</a></li>
+                <li><a class="nav-link nav-about" href="about.html">About Us</a></li>
+                <li><a class="nav-link nav-products" href="products.html">Products/Services</a></li>
+                <li><a class="nav-link nav-contact" href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section with Dashboard -->
+    <section class="dashboard-hero">
+        <div class="hero-overlay"></div>
+        <video autoplay muted loop id="bg-video" class="hero-video">
+            <source src="carvideo.mp4" type="video/mp4">
+        </video>
+
+        <div class="dashboard-content">
+            <div class="hero-header">
+                <h1 class="main-title">Luxury Drive Motors</h1>
+                <p class="tagline">Premium Performance & Elegance United</p>
+            </div>
+
+            <!-- Stats Dashboard -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">🏆</div>
+                    <h3>50+</h3>
+                    <p>Premium Models</p>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">👥</div>
+                    <h3>10K+</h3>
+                    <p>Happy Clients</p>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">⭐</div>
+                    <h3>4.9/5</h3>
+                    <p>Customer Rating</p>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">🚗</div>
+                    <h3>100%</h3>
+                    <p>Satisfaction</p>
+                </div>
+            </div>
+
+            <!-- Call to Action Buttons -->
+            <div class="cta-buttons">
+                <a href="products.html" class="btn btn-primary">Explore Our Fleet</a>
+                <a href="contact.html" class="btn btn-secondary">Request Test Drive</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section">
+        <h2>Why Choose Us?</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">✨</div>
+                <h3>Premium Quality</h3>
+                <p>Handpicked luxury vehicles with the highest standards of quality and performance.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🔒</div>
+                <h3>Secure Transactions</h3>
+                <p>All purchases are protected with comprehensive warranties and guarantees.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🚀</div>
+                <h3>Fast Service</h3>
+                <p>Quick delivery and professional support for all your automotive needs.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">💎</div>
+                <h3>Exclusive Deals</h3>
+                <p>Access to special offers and financing options for our valued clients.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Links Dashboard -->
+    <section class="quick-links-section">
+        <h2>Quick Access</h2>
+        <div class="quick-links-grid">
+            <a href="products.html" class="quick-link-card">
+                <div class="link-icon">🚙</div>
+                <h4>Browse Vehicles</h4>
+                <p>View our complete inventory</p>
+            </a>
+            <a href="about.html" class="quick-link-card">
+                <div class="link-icon">📖</div>
+                <h4>Our Story</h4>
+                <p>Learn about our company</p>
+            </a>
+            <a href="contact.html" class="quick-link-card">
+                <div class="link-icon">📞</div>
+                <h4>Get in Touch</h4>
+                <p>Contact our team</p>
+            </a>
+        </div>
+    </section>
+
+    <script>
+        // ===== SPLASH SCREEN - Show Only Once Per Session =====
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const splashScreen = document.getElementById('splash-screen');
+            
+            // Check if splash has already been shown in this session
+            const splashShown = sessionStorage.getItem('splashShown');
+            
+            if (!splashShown && splashScreen) {
+                // Splash hasn't been shown yet, display it
+                splashScreen.classList.remove('hidden');
+                
+                // Hide splash after 2 seconds
+                setTimeout(() => {
+                    splashScreen.classList.add('hidden');
+                    // Mark splash as shown in this session
+                    sessionStorage.setItem('splashShown', 'true');
+                }, 2000);
+            } else {
+                // Splash already shown, hide it immediately
+                if (splashScreen) {
+                    splashScreen.classList.add('hidden');
+                }
+            }
+        });
+
+        // Mobile Navigation Handler
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('navMenu');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        if (hamburger && navMenu) {
+            hamburger.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+                hamburger.classList.toggle('active');
+            });
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    navMenu.classList.remove('active');
+                    hamburger.classList.remove('active');
+                });
+            });
+        }
+
+        // Active Link Handler
+        function setActiveLink() {
+            const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === currentPage) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        setActiveLink();
+        window.addEventListener('load', setActiveLink);
+
+        // Smooth Scroll for Navigation
+        navLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                if (this.getAttribute('href').startsWith('#')) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetElement = document.getElementById(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({ behavior: 'smooth' });
+                    }
+                }
+            });
+        });
+
+        // Scroll Animation for Stats Cards
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-in');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.stat-card, .feature-card, .quick-link-card').forEach(card => {
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>

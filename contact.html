@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - LambJoe-Ginni</title>
+    <link rel="stylesheet" href="contact.css">
+    <link rel="icon" type="image/png" href="image.png">
+</head>
+<body>
+
+<!-- Enhanced Navigation -->
+<nav class="navbar">
+    <div class="nav-container">
+        <div class="logo-area">
+            <img src="image.png" width="80" height="80" class="logo-img" alt="LambJoe-Ginni Logo">
+            <span class="brand-name">LambJoe-Ginni</span>
+        </div>
+        
+        <!-- Hamburger Menu for Mobile -->
+        <button class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <!-- Navigation Links -->
+        <ul class="nav-menu" id="navMenu">
+            <li><a class="nav-link nav-home" href="index.html">Home</a></li>
+            <li><a class="nav-link nav-about" href="about.html">About Us</a></li>
+            <li><a class="nav-link nav-products" href="products.html">Products/Services</a></li>
+            <li><a class="nav-link nav-contact active" href="contact.html">Contact</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- Page Hero Section -->
+<section class="contact-hero">
+    <div class="hero-overlay"></div>
+    <video autoplay muted loop id="bg-video" class="hero-video">
+        <source src="carvideo.mp4" type="video/mp4">
+    </video>
+    <div class="hero-content">
+        <h1>Get in Touch</h1>
+        <p>We're Here to Help You</p>
+    </div>
+</section>
+
+<!-- Main Content Container -->
+<section class="contact-container">
+    
+    <!-- Contact Info Section -->
+    <div class="contact-info-grid">
+        <div class="info-card">
+            <div class="info-icon">📍</div>
+            <h3>Our Location</h3>
+            <p>High Society St.<br>Davao City</p>
+        </div>
+        
+        <div class="info-card">
+            <div class="info-icon">✉️</div>
+            <h3>Email Us</h3>
+            <p><a href="mailto:joebencedes@gmail.com">joebencedes@gmail.com</a></p>
+        </div>
+        
+        <div class="info-card">
+            <div class="info-icon">📞</div>
+            <h3>Call Us</h3>
+            <p><a href="tel:09099307245">0909-930-7245</a></p>
+        </div>
+    </div>
+
+    <!-- Contact Form & Map Section -->
+    <div class="contact-main">
+        
+        <!-- Contact Form -->
+        <div class="form-section">
+            <h2>Send Us a Message</h2>
+            <p>Fill out the form below and we'll get back to you as soon as possible.</p>
+            
+            <form id="contact-submission-form" class="contact-form" action="https://formspree.io/f/xwpgpwng" method="POST">
+                <div class="form-group">
+                    <label for="inquiry-type">Inquiry Type *</label>
+                    <select name="subject" id="inquiry-type" required>            
+                        <option value="" disabled selected>Select Inquiry Type</option>
+                        <option value="sales">Sales Inquiry</option>
+                        <option value="service">Service Appointment</option>
+                        <option value="bespoke">Bespoke Commissioning</option>
+                        <option value="general">General Feedback</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="name">Your Name *</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address *</label>
+                    <input type="email" id="email" name="email" placeholder="your@email.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" placeholder="Your phone number (optional)">
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Your Message *</label>
+                    <textarea id="message" name="message" placeholder="Tell us more about your inquiry..." required></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Send Message</button>
+            </form>
+        </div>
+
+        <!-- Info Sidebar -->
+        <div class="info-sidebar">
+            <h3>Business Hours</h3>
+            <div class="hours-list">
+                <div class="hour-item">
+                    <span class="day">Monday - Friday</span>
+                    <span class="time">9:00 AM - 6:00 PM</span>
+                </div>
+                <div class="hour-item">
+                    <span class="day">Saturday</span>
+                    <span class="time">10:00 AM - 4:00 PM</span>
+                </div>
+                <div class="hour-item">
+                    <span class="day">Sunday</span>
+                    <span class="time">Closed</span>
+                </div>
+            </div>
+
+            <h3 style="margin-top: 40px;">Why Contact Us?</h3>
+            <ul class="benefits-list">
+                <li>Expert consultation on vehicle selection</li>
+                <li>Custom commissioning assistance</li>
+                <li>Service and maintenance support</li>
+                <li>Exclusive owner benefits</li>
+                <li>24/7 concierge service</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta-section">
+    <div class="cta-content">
+        <h2>Still Have Questions?</h2>
+        <p>Our team of experts is ready to assist you with any inquiries about our premium vehicles and services.</p>
+        <div class="cta-buttons">
+            <a href="#contact-submission-form" class="btn btn-primary">Contact Form</a>
+            <a href="products.html" class="btn btn-secondary">View Fleet</a>
+        </div>
+    </div>
+</section>
+
+<script>
+    // Mobile Navigation Handler
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('navMenu');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    if (hamburger && navMenu) {
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        });
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                hamburger.classList.remove('active');
+            });
+        });
+    }
+
+    // Active Link Handler
+    function setActiveLink() {
+        const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === currentPage) {
+                link.classList.add('active');
+            }
+        });
+    }
+
+    setActiveLink();
+    window.addEventListener('load', setActiveLink);
+
+    // Form Submission Handler
+    const contactForm = document.getElementById('contact-submission-form');
+    if (contactForm) {
+        contactForm.addEventListener('submit', (e) => {
+            // Get form data
+            const formData = new FormData(contactForm);
+            const data = Object.fromEntries(formData);
+            
+            // Simple validation
+            if (!data.subject || !data.name || !data.email || !data.message) {
+                alert('Please fill in all required fields.');
+                e.preventDefault();
+                return;
+            }
+            
+            // Form will submit to Formspree automatically
+            // Show success message after submission
+            setTimeout(() => {
+                alert('Thank you for your message! We will contact you shortly.');
+                contactForm.reset();
+            }, 500);
+        });
+    }
+
+    // Scroll Animation for Cards
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -100px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate-in');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.info-card, .form-section, .info-sidebar').forEach(card => {
+        observer.observe(card);
+    });
+</script>
+
+</body>
+</html>

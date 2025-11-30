@@ -1,0 +1,802 @@
+/*==========================================================
+  1. GLOBAL STYLES & LAYOUT
+==========================================================*/
+body {
+    /* Set the background of the entire page content area to black */
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #030303; 
+    color: #f7f7f7; /* Default light text color for better readability on dark background */
+}
+
+/* Main Content Wrapper - Used on contact.html and about.html */
+.container {
+    padding: 40px; 
+    
+    /* Ensure the container background is also black for the contact page */
+    background-color: #030303; 
+    color: #f7f7f7; /* Ensure text remains white */
+    
+}
+/*==========================================================
+  1.5 FONT & TYPOGRAPHY STYLES (Car Theme)
+==========================================================*/
+/* Apply new fonts and styling */
+ 
+.container h3 {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700; 
+    letter-spacing: 1px;
+    margin-top: 40px;
+    margin-bottom: 15px;
+    color: #ffffff;
+}
+
+/* About Our Company (main heading) */
+.container h2 {
+    font-size: 2.5em; 
+    color: #ffffff;
+    font-weight: 900;
+}
+
+/* Mission, Vision, Our Team (sub-headings) */
+.container h3 {
+    font-size: 1.8em;
+    color: #e0e0e0;
+}
+
+/* Body and Paragraph Text */
+.container p, 
+.container ul li {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300; /* Light weight for elegance */
+    line-height: 1.6; 
+    color: #f7f7f7;
+    font-size: 1.05em;
+}
+
+/* Update GLOBAL body font to be clean and readable */
+body {
+    /* ... existing styles ... */
+    font-family: 'Roboto', Arial, sans-serif; /* CHANGE/ADD this line in the body selector */
+}
+
+
+/*==========================================================
+  2. NAVIGATION BAR (NAV) - ENHANCED
+==========================================================*/
+.navbar {
+    background: #030303;
+    color: white;
+    padding: 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 30px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-img {
+    width: 60px;
+    height: 60px;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.logo-img:hover {
+    transform: scale(1.05);
+}
+
+.brand-name {
+    font-size: 20px;
+    font-weight: 700;
+    color: #00bfff;
+    letter-spacing: 0.5px;
+}
+
+/* Hamburger Menu */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 8px;
+}
+
+.hamburger span {
+    width: 22px;
+    height: 2.5px;
+    background: #ffffff;
+    margin: 4px 0;
+    border-radius: 2px;
+    transition: 0.3s ease;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(8px, 8px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* Navigation Menu */
+.nav-menu {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-link {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    position: relative;
+    text-transform: uppercase;
+    font-size: 0.85em;
+    letter-spacing: 0.5px;
+}
+
+.nav-link::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #00bfff;
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #00bfff;
+}
+
+.nav-link:hover::before {
+    width: 100%;
+}
+
+.nav-link.active {
+    background: transparent;
+    color: #00bfff;
+    border-bottom: 2px solid #00bfff;
+    padding-bottom: 6px;
+}
+
+.nav-link.active::before {
+    width: 0;
+}
+
+
+/* Responsive Hamburger Menu */
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+    }
+
+    .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 130px;
+        flex-direction: column;
+        background-color: #030303;
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        padding: 20px 0;
+        gap: 0;
+    }
+
+    .nav-menu.active {
+        left: 0;
+    }
+
+    .nav-menu li {
+        padding: 15px 0;
+        border-bottom: 1px solid rgba(0, 191, 255, 0.1);
+    }
+
+    .nav-link {
+        display: block;
+        padding: 15px 0;
+    }
+
+    .brand-name {
+        font-size: 18px;
+    }
+
+    .logo-img {
+        width: 60px;
+        height: 60px;
+    }
+}
+
+
+/*==========================================================
+  3. HERO SECTION & DASHBOARD - ENHANCED
+==========================================================*/
+.dashboard-hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(3, 3, 3, 0.5) 0%, rgba(0, 0, 0, 0.7) 100%);
+    z-index: 1;
+}
+
+.hero-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+
+.dashboard-content {
+    z-index: 2;
+    position: relative;
+    max-width: 1200px;
+    width: 100%;
+    padding: 60px 40px;
+}
+
+.hero-header {
+    margin-bottom: 60px;
+    animation: slideDown 0.8s ease-out;
+}
+
+.main-title {
+    font-size: 4em;
+    font-weight: 900;
+    letter-spacing: 2px;
+    margin: 0 0 15px 0;
+    color: #ffffff;
+}
+
+.tagline {
+    font-size: 1.5em;
+    font-weight: 300;
+    color: #e0e0e0;
+    margin: 0;
+    letter-spacing: 1px;
+}
+
+/* Stats Dashboard Grid */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 25px;
+    margin-bottom: 60px;
+    animation: slideUp 0.8s ease-out 0.2s both;
+}
+
+.stat-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 35px 25px;
+    border-radius: 8px;
+    text-align: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.stat-card:hover {
+    transform: translateY(-8px);
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.stat-icon {
+    font-size: 3em;
+    margin-bottom: 15px;
+    display: inline-block;
+}
+
+.stat-card h3 {
+    font-size: 2.5em;
+    color: #ffffff;
+    margin: 10px 0;
+    font-weight: 700;
+}
+
+.stat-card p {
+    color: #b0b0b0;
+    font-size: 0.95em;
+    margin: 0;
+}
+
+.stat-card.animate-in {
+    animation: slideIn 0.6s ease-out forwards;
+}
+
+/* CTA Buttons */
+.cta-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    animation: slideUp 0.8s ease-out 0.4s both;
+}
+
+.btn {
+    padding: 15px 40px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    font-size: 1em;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    cursor: pointer;
+    border: 2px solid transparent;
+}
+
+.btn-primary {
+    background: #ffffff;
+    color: #030303;
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(255, 255, 255, 0.3);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+}
+
+.btn-secondary:hover {
+    background: #ffffff;
+    color: #030303;
+    transform: translateY(-3px);
+}
+
+/* Animations */
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .dashboard-hero {
+        min-height: 80vh;
+    }
+
+    .dashboard-content {
+        padding: 40px 20px;
+    }
+
+    .main-title {
+        font-size: 2.5em;
+    }
+
+    .tagline {
+        font-size: 1.1em;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+        margin-bottom: 40px;
+    }
+
+    .cta-buttons {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .btn {
+        width: 100%;
+    }
+}
+
+
+/*==========================================================
+  4. PRODUCT & GRID STYLES (CARD-BASED)
+==========================================================*/
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    text-align: center;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+}
+
+/*==========================================================
+  4.5 FEATURES SECTION - NEW
+==========================================================*/
+.features-section {
+    background: #0a0a0a;
+    padding: 100px 40px;
+    text-align: center;
+}
+
+.features-section h2 {
+    font-size: 3em;
+    color: #ffffff;
+    margin-bottom: 60px;
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.feature-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 40px 30px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.feature-card:hover {
+    transform: translateY(-8px);
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+}
+
+.feature-icon {
+    font-size: 3.5em;
+    margin-bottom: 20px;
+    display: inline-block;
+}
+
+.feature-card h3 {
+    font-size: 1.5em;
+    color: #ffffff;
+    margin: 15px 0;
+    font-weight: 700;
+}
+
+.feature-card p {
+    color: #b0b0b0;
+    font-size: 0.95em;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.feature-card.animate-in {
+    animation: slideIn 0.6s ease-out forwards;
+}
+
+/*==========================================================
+  4.6 QUICK LINKS SECTION - NEW
+==========================================================*/
+.quick-links-section {
+    background: #030303;
+    padding: 100px 40px;
+    text-align: center;
+}
+
+.quick-links-section h2 {
+    font-size: 3em;
+    color: #ffffff;
+    margin-bottom: 60px;
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+
+.quick-links-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.quick-link-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 40px 30px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+    display: block;
+}
+
+.quick-link-card:hover {
+    transform: translateY(-8px);
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+}
+
+.link-icon {
+    font-size: 3em;
+    margin-bottom: 15px;
+    display: inline-block;
+}
+
+.quick-link-card h4 {
+    font-size: 1.3em;
+    color: #ffffff;
+    margin: 15px 0 8px 0;
+    font-weight: 700;
+}
+
+.quick-link-card p {
+    color: #a0a0a0;
+    font-size: 0.9em;
+    margin: 0;
+}
+
+.quick-link-card.animate-in {
+    animation: slideIn 0.6s ease-out forwards;
+}
+
+/*==========================================================
+  5. CONTACT FORM STYLES
+==========================================================*/
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    border-radius: 5px;
+    border: 1px solid #999;
+    /* Ensure form fields look good on a dark background */
+    background-color: #222; 
+    color: #fff;
+}
+
+.contact-form button {
+    margin-top: 10px;
+    padding: 12px;
+    background: #16a085;
+    border: none;
+    color: white;
+    width: 100%;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.contact-form button:hover {
+    background: #1abc9c;
+}
+/* Styling for the embedded map area */
+
+
+/* Style the new SELECT/Dropdown and TEXTAREA fields to match existing inputs */
+.contact-form select,
+.contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    border-radius: 5px;
+    border: 1px solid #555; 
+    background-color: #222; 
+    color: #fff;
+    font-family: inherit; 
+    /* These reset default browser styling on select/dropdown */
+    -webkit-appearance: none; 
+    -moz-appearance: none;
+    appearance: none;
+}
+
+
+
+/*==========================================================
+  6. TEAM SECTION STYLES
+==========================================================*/
+.team-photos-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.team-member {
+    text-align: center;
+    padding: 10px;
+    margin-bottom: 20px;
+    max-width: 200px;
+}
+
+.team-member img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    border: 3px solid #ccc;
+}
+
+.member-name {
+    font-size: 1.1em;
+    font-weight: bold;
+    margin: 5px 0;
+}
+
+.member-role {
+    font-size: 0.9em;
+    color: #ccc; /* Lightened color for dark background */
+}
+
+/* 1. KEYFRAMES: Define the movement */
+/* We scroll from left to right (moving content in the positive X direction) */
+@keyframes scroll-right {
+    0% {
+        /* Start position: Shows the second set of duplicates aligned with the viewport */
+        transform: translateX(-50%);
+    }
+    100% {
+        /* End position: Scrolls to the start of the first set (creating a loop reset) */
+        transform: translateX(0%);
+    }
+}
+
+/* 2. UPDATE .team-photos-container to hide overflow and define the view area */
+.team-photos-container {
+    /* Existing styles like display: flex; should be REMOVED from here */
+    
+    /* Crucial: Hides all content that is outside the viewable area */
+    overflow: hidden; 
+    
+    /* Ensure no wrapping happens here */
+    white-space: nowrap; 
+    
+    /* Optional: Sets a max-width and centers the container on the page */
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+/* 3. STYLE THE SCROLL WRAPPER */
+.team-scroll-wrapper {
+    /* Set to flex to arrange all 10 cards horizontally */
+    display: flex; 
+    
+    /* Prevents the cards from wrapping */
+    flex-wrap: nowrap; 
+    
+    /* Apply the animation */
+    /* 40s is slow, adjust lower (e.g., 20s) for faster speed */
+    animation: scroll-right 40s linear infinite; 
+    
+    /* Ensure the wrapper is wide enough for all 10 members */
+    width: 200%; 
+    
+    /* Start the animation from the duplicate set (right side) for a seamless loop */
+    transform: translateX(-50%); 
+}
+
+/* Update the existing .team-member rule */
+.team-member {
+    /* ... existing styles ... */
+    
+    /* Increase the minimum width to give the text more room */
+    min-width: max-content; 
+    
+    /* CRUCIAL: Increase the space (padding) on the right to separate cards */
+    padding-right: 80px; /* Example: Increased space */
+    
+    /* Ensure the cards don't shrink */
+    flex-shrink: 0; 
+    
+    /* The rest of the styles (display: flex, etc.) remain */
+}
+
+
+/*==========================================================
+  7. SPLASH SCREEN STYLES
+==========================================================*/
+#splash-screen {
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    z-index: 9999;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+}
+
+.splash-logo {
+    width: 150px;
+    height: auto;
+}
+
+#splash-screen.hidden {
+    opacity: 0;
+    visibility: hidden;
+}

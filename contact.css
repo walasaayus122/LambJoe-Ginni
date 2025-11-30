@@ -1,0 +1,613 @@
+/*==========================================================
+  1. GLOBAL STYLES
+==========================================================*/
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Roboto', Arial, sans-serif;
+    background: #030303;
+    color: #f7f7f7;
+}
+
+/*==========================================================
+  2. NAVIGATION BAR - ENHANCED
+==========================================================*/
+.navbar {
+    background: #030303;
+    color: white;
+    padding: 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 30px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-img {
+    width: 60px;
+    height: 60px;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.logo-img:hover {
+    transform: scale(1.05);
+}
+
+.brand-name {
+    font-size: 20px;
+    font-weight: 700;
+    color: #00bfff;
+    letter-spacing: 0.5px;
+}
+
+/* Hamburger Menu */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 8px;
+}
+
+.hamburger span {
+    width: 22px;
+    height: 2.5px;
+    background: #ffffff;
+    margin: 4px 0;
+    border-radius: 2px;
+    transition: 0.3s ease;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(8px, 8px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* Navigation Menu */
+.nav-menu {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-link {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    position: relative;
+    text-transform: uppercase;
+    font-size: 0.85em;
+    letter-spacing: 0.5px;
+}
+
+.nav-link::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #ffffff;
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #ffffff;
+}
+
+.nav-link:hover::before {
+    width: 100%;
+}
+
+.nav-link.active {
+    background: transparent;
+    color: #ffffff;
+    border-bottom: 2px solid #ffffff;
+    padding-bottom: 6px;
+}
+
+.nav-link.active::before {
+    width: 0;
+}
+
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+    }
+
+    .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 130px;
+        flex-direction: column;
+        background-color: #030303;
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        padding: 20px 0;
+        gap: 0;
+    }
+
+    .nav-menu.active {
+        left: 0;
+    }
+
+    .nav-menu li {
+        padding: 15px 0;
+        border-bottom: 1px solid rgba(0, 191, 255, 0.1);
+    }
+
+    .nav-link {
+        display: block;
+        padding: 15px 0;
+    }
+
+    .brand-name {
+        font-size: 18px;
+    }
+
+    .logo-img {
+        width: 60px;
+        height: 60px;
+    }
+}
+
+/*==========================================================
+  3. HERO SECTION
+==========================================================*/
+.contact-hero {
+    position: relative;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    background: #0a0a0a;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+}
+
+.hero-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(3, 3, 3, 0.75) 0%, rgba(0, 0, 0, 0.85) 100%);
+    z-index: 1;
+}
+
+.hero-content {
+    z-index: 2;
+    position: relative;
+}
+
+.contact-hero h1 {
+    font-size: 3.5em;
+    margin: 0 0 15px 0;
+    font-weight: 900;
+    color: #ffffff;
+    letter-spacing: 2px;
+}
+
+.contact-hero p {
+    font-size: 1.3em;
+    color: #d0d0d0;
+    margin: 0;
+    letter-spacing: 1px;
+}
+
+/*==========================================================
+  4. CONTACT INFO GRID
+==========================================================*/
+.contact-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 40px;
+}
+
+.contact-info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-bottom: 80px;
+}
+
+.info-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 40px 30px;
+    border-radius: 8px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.info-card:hover {
+    transform: translateY(-8px);
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+}
+
+.info-icon {
+    font-size: 3em;
+    margin-bottom: 15px;
+    display: inline-block;
+}
+
+.info-card h3 {
+    font-size: 1.5em;
+    color: #ffffff;
+    margin: 15px 0 10px 0;
+    font-weight: 700;
+}
+
+.info-card p {
+    color: #a0a0a0;
+    font-size: 1em;
+    margin: 0;
+    line-height: 1.6;
+}
+
+.info-card a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.info-card a:hover {
+    color: #d0d0d0;
+    text-decoration: underline;
+}
+
+.info-card.animate-in {
+    animation: slideIn 0.6s ease-out forwards;
+}
+
+/*==========================================================
+  5. CONTACT MAIN - FORM & SIDEBAR
+==========================================================*/
+.contact-main {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 50px;
+    margin-bottom: 80px;
+}
+
+.form-section {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 50px;
+    border-radius: 8px;
+}
+
+.form-section h2 {
+    font-size: 2em;
+    color: #ffffff;
+    margin: 0 0 10px 0;
+    font-weight: 700;
+}
+
+.form-section > p {
+    color: #a0a0a0;
+    font-size: 1em;
+    margin: 0 0 40px 0;
+    line-height: 1.6;
+}
+
+.form-section.animate-in {
+    animation: slideIn 0.6s ease-out forwards;
+}
+
+/*==========================================================
+  6. CONTACT FORM
+==========================================================*/
+.contact-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group {
+    margin-bottom: 25px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-size: 0.95em;
+    font-weight: 600;
+    color: #f7f7f7;
+    margin-bottom: 8px;
+}
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+    padding: 15px;
+    background-color: #1a1a1a;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    color: #f7f7f7;
+    font-family: inherit;
+    font-size: 1em;
+    transition: all 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: #ffffff;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+    background-color: #222;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: #808080;
+}
+
+.contact-form select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    cursor: pointer;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23ffffff' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    padding-right: 35px;
+}
+
+.contact-form textarea {
+    resize: vertical;
+    min-height: 150px;
+}
+
+.btn {
+    padding: 15px 40px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    font-size: 1em;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    cursor: pointer;
+    border: 2px solid transparent;
+    align-self: flex-start;
+}
+
+.btn-primary {
+    background: #ffffff;
+    color: #030303;
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(255, 255, 255, 0.3);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+}
+
+.btn-secondary:hover {
+    background: #ffffff;
+    color: #030303;
+    transform: translateY(-3px);
+}
+
+/*==========================================================
+  7. INFO SIDEBAR
+==========================================================*/
+.info-sidebar {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 40px;
+    border-radius: 8px;
+    height: fit-content;
+}
+
+.info-sidebar h3 {
+    font-size: 1.3em;
+    color: #ffffff;
+    margin: 0 0 25px 0;
+    font-weight: 700;
+    padding-bottom: 15px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.hours-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.hour-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.day {
+    color: #f7f7f7;
+    font-weight: 600;
+}
+
+.time {
+    color: #ffffff;
+    font-weight: 700;
+}
+
+.benefits-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.benefits-list li {
+    padding: 12px 0 12px 25px;
+    color: #a0a0a0;
+    position: relative;
+    line-height: 1.6;
+}
+
+.benefits-list li::before {
+    content: '▪';
+    position: absolute;
+    left: 0;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.info-sidebar.animate-in {
+    animation: slideIn 0.6s ease-out forwards;
+}
+
+/*==========================================================
+  8. CTA SECTION
+==========================================================*/
+.cta-section {
+    background: #0a0a0a;
+    padding: 80px 40px;
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.cta-content h2 {
+    font-size: 2.5em;
+    color: #ffffff;
+    margin: 0 0 15px 0;
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+
+.cta-content p {
+    font-size: 1.1em;
+    color: #a0a0a0;
+    margin: 0 0 35px 0;
+    line-height: 1.6;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/*==========================================================
+  9. ANIMATIONS
+==========================================================*/
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/*==========================================================
+  10. RESPONSIVE DESIGN
+==========================================================*/
+@media (max-width: 1024px) {
+    .contact-main {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .info-sidebar {
+        height: auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .contact-hero h1 {
+        font-size: 2.2em;
+    }
+
+    .contact-container,
+    .cta-section {
+        padding: 50px 20px;
+    }
+
+    .form-section {
+        padding: 30px;
+    }
+
+    .info-sidebar {
+        padding: 30px;
+    }
+
+    .contact-main {
+        gap: 30px;
+    }
+
+    .cta-content h2 {
+        font-size: 1.8em;
+    }
+
+    .contact-info-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .cta-buttons {
+        flex-direction: column;
+    }
+
+    .btn {
+        width: 100%;
+        align-self: stretch;
+    }
+}
